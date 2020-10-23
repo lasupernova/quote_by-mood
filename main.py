@@ -72,7 +72,7 @@ class LoginSuccess(Screen):
         feeling = feeling.lower()
 
         # get list with path of all files in quotes-directory
-        available_feelings = glob.glob("quotes\*txt")
+        available_feelings = glob.glob("quotes/*txt")
         # get stem from each of the paths
 
         available_feelings = [Path(filename).stem for filename in available_feelings]
@@ -80,7 +80,7 @@ class LoginSuccess(Screen):
         # check if entered feeling exists
         if feeling in available_feelings:
             # load all quotes in file into quotes
-            with open(f"quotes\\{feeling}.txt") as file:
+            with open(f"quotes/{feeling}.txt") as file:
                 quotes = file.readlines()
 
             # select random quote
